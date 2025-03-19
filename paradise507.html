@@ -154,6 +154,31 @@
                 font-size: 16px;
             }
         }
+
+        .tour-card {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Ícono de zoom */
+.tour-card::before {
+    content: "🔍";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Mostrar el icono de lupa cuando el usuario pase el mouse */
+.tour-card:hover::before {
+    opacity: 1;
+}
+
     </style>
 </head>
 <body>
