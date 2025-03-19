@@ -31,16 +31,13 @@
             background: rgba(0, 0, 0, 0.5);
             padding: 10px 20px;
             border-radius: 10px;
-           
-           
         }
         .social-icons {
             margin-top: 15px;
             display: flex;
-            gap: 15px;
+            gap: 5px;
             flex-wrap: wrap;
             justify-content: center;
-            
         }
         .social-icons a img {
             width: 40px;
@@ -79,6 +76,7 @@
             padding: 15px;
             text-align: center;
             transition: transform 0.3s;
+            cursor: pointer;
         }
         .tour-card:hover {
             transform: scale(1.05);
@@ -108,6 +106,35 @@
             width: 50px;
             height: 50px;
         }
+
+        /* Estilos del Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 35px;
+            color: white;
+            cursor: pointer;
+        }
+
         @media (max-width: 768px) {
             header {
                 padding: 40px 15px;
@@ -130,45 +157,68 @@
     </style>
 </head>
 <body>
-    <header>
-       
-      
-    </header>
+    <header></header>
     <div class="container">
-       
         <div class="social-icons">
-            <a href="https://wa.me/50766051447" target="_blank"><img src="whatsapp-icon.png" alt="WhatsApp"></a>
-            <a href="https://www.instagram.com/viajesparadise507/" target="_blank"><img style="height: 60px !important; width: 60px !important; margin-top: -10px !important;" src="instagram-icon.png" alt="Instagram"></a>
-            <a href="https://www.facebook.com/viajesparadise507/" target="_blank"><img style="height: 50px !important; width: 50px !important; margin-top: -5px !important;" src="facebook-icon.png" alt="Facebook"></a>
+            <b>Siguenos en:</b>
+            <a href="https://www.instagram.com/viajesparadise507/" target="_blank">
+                <img style="height: 60px; width: 60px; margin-top: -10px;" src="instagram-icon.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/viajesparadise507/" target="_blank">
+                <img style="height: 50px; width: 50px; margin-top: -5px;" src="facebook-icon.png" alt="Facebook">
+            </a>
         </div>
         <img src="logoparadise507.PNG" alt="Paradise 507">
         <div class="title">Explora Nuestros Tours</div>
-        <div class="description">Descubre experiencias únicas y disfruta de los mejores destinos turísticos con nosotros. Elige tu aventura y vive momentos inolvidables.</div>
+        <div class="description">
+            Descubre experiencias únicas y disfruta de los mejores destinos turísticos con nosotros. 
+            Elige tu aventura y vive momentos inolvidables.
+        </div>
         <div class="catalogo">
-            <div class="tour-card">
-                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.06_fdc763fd.jpg" alt="Tour Embera">
-                <h2>Tour Embera</h2>
-            </div>
-            <div class="tour-card">
-                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.10_7743bea1.jpg" alt="Tour Gamboa">
-                <h2>Tour Gamboa</h2>
-            </div>
-            <div class="tour-card">
-                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.12_3fa66a92.jpg" alt="City Tour">
+            <div class="tour-card" onclick="openModal(this)">
+                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.06_fdc763fd.jpg" alt="City Tour">
                 <h2>City Tour</h2>
             </div>
-            <div class="tour-card">
-                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.16_539a861c.jpg" alt="Tour Santa Clara">
+            <div class="tour-card" onclick="openModal(this)">
+                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.10_7743bea1.jpg" alt="Santa Clara">
                 <h2>Santa Clara</h2>
             </div>
-            <div class="tour-card">
-                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.20_5fc1c337.jpg" alt="Tour San Blas">
+            <div class="tour-card" onclick="openModal(this)">
+                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.12_3fa66a92.jpg" alt="San Blas">
                 <h2>San Blas</h2>
+            </div>
+            <div class="tour-card" onclick="openModal(this)">
+                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.16_539a861c.jpg" alt="Tour Gamboa">
+                <h2>Tour Gamboa</h2>
+            </div>
+            <div class="tour-card" onclick="openModal(this)">
+                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.20_5fc1c337.jpg" alt="Tour Embera">
+                <h2>Tour Embera</h2>
             </div>
         </div>
     </div>
+
     <a href="https://wa.me/50766051447" class="whatsapp-float">
         <img src="whatsapp-icon.png" alt="WhatsApp">
     </a>
+
+    <!-- Modal -->
+    <div class="modal" id="imageModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImg">
+    </div>
+
+    <script>
+        function openModal(element) {
+            let imgSrc = element.querySelector("img").src;
+            document.getElementById("modalImg").src = imgSrc;
+            document.getElementById("imageModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+    </script>
+
 </body>
 </html>
