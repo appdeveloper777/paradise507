@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Tours</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            text-align: center;
+        }
+        header {
+            background: url('2.png') center/cover no-repeat;
+            color: white;
+            padding: 100px 40px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom-left-radius: 50% 20px;
+            border-bottom-right-radius: 50% 20px;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .social-icons {
+            margin-top: 15px;
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .social-icons a img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+        .social-icons a img:hover {
+            transform: scale(1.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .description {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+        .catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 10px;
+            background-color: #555;
+        }
+        .tour-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .tour-card:hover {
+            transform: scale(1.05);
+        }
+        .tour-card img {
+            width: 100%;
+            border-radius: 15px;
+        }
+        .tour-card h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            border-radius: 50%;
+            padding: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp-float img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Estilos del Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 35px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 15px;
+            }
+            .logo {
+                font-size: 24px;
+                padding: 8px 15px;
+            }
+            .social-icons a img {
+                width: 35px;
+                height: 35px;
+            }
+            .title {
+                font-size: 24px;
+            }
+            .description {
+                font-size: 16px;
+            }
+            .catalogo {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .tour-card {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Ícono de zoom */
+.tour-card::before {
+    content: "🔍";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Mostrar el icono de lupa cuando el usuario pase el mouse */
+.tour-card:hover::before {
+    opacity: 1;
+}
+
+    </style>
+</head>
+<body>
+    <header>  </header>
+    <div class="container">
+        <div class="social-icons">
+            <img style="width: 60px; height: 60px; margin-top: -10px;" src="logoparadise507.PNG" alt="Paradise 507">
+            <b>Siguenos en:</b>            
+            <a href="https://www.instagram.com/viajesparadise507/" target="_blank">
+                <img style="height: 60px; width: 60px; margin-top: -10px;" src="instagram-icon.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/viajesparadise507/" target="_blank">
+                <img style="height: 50px; width: 50px; margin-top: -5px;" src="facebook-icon.png" alt="Facebook">
+            </a>
+        </div>
+      
+        <div class="title">Explora Nuestros Tours</div>
+        <div class="description">
+            <p> Descubre experiencias únicas y disfruta de los mejores destinos turísticos con nosotros. 
+                Elige tu aventura y vive momentos inolvidables.</p>           
+        </div>
+        <h3>Catálogo:</h3>
+        <div class="catalogo">
+            <div class="tour-card" onclick="openModal(this)">
+                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.06_fdc763fd.jpg" alt="City Tour">
+                <h2>City Tour</h2>
+            </div>
+            <div class="tour-card" onclick="openModal(this)">
+                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.10_7743bea1.jpg" alt="Santa Clara">
+                <h2>Santa Clara</h2>
+            </div>
+            <div class="tour-card" onclick="openModal(this)">
+                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.12_3fa66a92.jpg" alt="San Blas">
+                <h2>San Blas</h2>
+            </div>
+            <div class="tour-card" onclick="openModal(this)">
+                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.16_539a861c.jpg" alt="Tour Gamboa">
+                <h2>Tour Gamboa</h2>
+            </div>
+            <div class="tour-card" onclick="openModal(this)">
+                <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.20_5fc1c337.jpg" alt="Tour Embera">
+                <h2>Tour Embera</h2>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/50766051447" class="whatsapp-float">
+        <img src="whatsapp-icon.png" alt="WhatsApp">
+    </a>
+
+    <!-- Modal -->
+    <div class="modal" id="imageModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImg">
+    </div>
+
+    <script>
+        function openModal(element) {
+            let imgSrc = element.querySelector("img").src;
+            document.getElementById("modalImg").src = imgSrc;
+            document.getElementById("imageModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
