@@ -68,6 +68,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             padding: 10px;
+            background-color: #555;
         }
         .tour-card {
             background: white;
@@ -153,6 +154,9 @@
             .description {
                 font-size: 16px;
             }
+            .catalogo {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .tour-card {
@@ -195,11 +199,12 @@
             </a>
         </div>
       
-        <div class="title">Explora Nuestros Tours:</div>
+        <div class="title">Explora Nuestros Tours</div>
         <div class="description">
             <p> Descubre experiencias únicas y disfruta de los mejores destinos turísticos con nosotros. 
                 Elige tu aventura y vive momentos inolvidables.</p>           
         </div>
+        <h3>Catálogo:</h3>
         <div class="catalogo">
             <div class="tour-card" onclick="openModal(this)">
                 <img src="Imagen de WhatsApp 2025-03-19 a las 09.52.06_fdc763fd.jpg" alt="City Tour">
