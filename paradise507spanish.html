@@ -15,14 +15,28 @@
         header {
             background: url('2.png') center/cover no-repeat;
             color: white;
+            border-color: black;
+            border-width: 1px;
             padding: 100px 40px;
             text-align: center;
             position: relative;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            border-bottom-left-radius: 50% 20px;
-            border-bottom-right-radius: 50% 20px;
+            align-items: center;           
+            border-bottom-right-radius: 50% 40px;
+            overflow: hidden;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            border-radius: 70% / 20px;
+            clip-path: polygon(0% 100%, 25% 80%, 50% 100%, 75% 80%, 100% 100%, 100% 0%, 0% 0%);
+          
         }
         .logo {
             font-size: 32px;
