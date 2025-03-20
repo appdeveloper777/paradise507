@@ -11,12 +11,20 @@
             background: linear-gradient(to bottom, #0099ff, #ff6600);
             text-align: center;
             color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
         .container {
             width: 100%;
-            max-width: 400px;
-            margin: auto;
+            max-width: 360px;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
         .logo {
             width: 100px;
@@ -26,42 +34,58 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: auto;
+            margin-bottom: 15px;
         }
         .logo img {
             width: 80px;
             height: auto;
         }
         .title {
-            font-size: 18px;
+            font-size: 20px;
+            font-weight: bold;
             margin: 10px 0;
         }
         .social-icons {
             display: flex;
             justify-content: center;
             gap: 15px;
+            flex-wrap: wrap;
             margin: 10px 0;
         }
-        .social-icons a {
-            text-decoration: none;
-            color: white;
-            font-size: 24px;
+        .social-icons a img {
+            height: 50px;
+            width: 50px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .social-icons a img:hover {
+            transform: scale(1.1);
         }
         .button {
             display: block;
-            width: 80%;
-            margin: 10px auto;
-            padding: 15px;
+            width: 90%;
+            max-width: 300px;
+            margin: 10px 0;
+            padding: 12px;
             background: black;
             color: white;
             text-align: center;
             border-radius: 30px;
             text-decoration: none;
             font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #333;
         }
         .contact {
             margin-top: 20px;
             font-size: 14px;
+        }
+        .whatsapp-button {
+            background: white;
+            color: black;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -83,7 +107,7 @@
         <a href="paradise507spanish.html" class="button">TOURS (ESPAÑOL)</a>
         <a href="paradise507english.html" class="button">TOURS (ENGLISH)</a>        
         <div class="contact">Contact us/Contactanos</div>
-        <a href="https://wa.me/50766051447" class="button" style="background: white; color: black;">WhatsApp</a>
+        <a href="https://wa.me/50766051447" class="button whatsapp-button">WhatsApp</a>
     </div>
 </body>
 </html>
